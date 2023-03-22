@@ -130,6 +130,11 @@ export default class XmlBeautify {
     const me = this;
 
     let elementTextContent = element.textContent;
+    elementTextContent = elementTextContent.replaceAll(/&/g, '&amp;');
+    elementTextContent = elementTextContent.replaceAll(/\"/g, '&quot;');
+    elementTextContent = elementTextContent.replaceAll(/\'/g, '&apos;');
+    elementTextContent = elementTextContent.replaceAll(/>/g, '&gt;');
+    elementTextContent = elementTextContent.replaceAll(/</g, '&lt;');
 
     const blankReplacedElementContent = elementTextContent.replace(/ /g, '').replace(/\r?\n/g, '').replace(/\n/g, '').replace(/\t/g, '');
 
