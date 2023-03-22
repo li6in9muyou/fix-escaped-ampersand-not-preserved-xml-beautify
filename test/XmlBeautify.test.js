@@ -209,7 +209,13 @@ describe('XmlBeautify', () => {
   });
 
   test('Preserve escaped special characters in innerText', () => {
-    expect(false).toBe(true);
+    const srcXmlText = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object>&quot;&gt;&apos;&amp;&apos;&lt;&quot;</object>
+`;
+    const beautifiedXmlText = new XmlBeautify({ parser: DOMParser }).beautify(srcXmlText);
+    expect(beautifiedXmlText).toBe(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object>&quot;&gt;&apos;&amp;&apos;&lt;&quot;</object>
+`);
   })
 
 });
