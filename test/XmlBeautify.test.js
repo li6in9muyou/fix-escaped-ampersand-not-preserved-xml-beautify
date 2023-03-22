@@ -208,5 +208,8 @@ describe('XmlBeautify', () => {
     });
   });
 
+  test('Preserve escaped special characters in innerText', () => {
+    expect(false).toBe(true);
+  })
 
 });
